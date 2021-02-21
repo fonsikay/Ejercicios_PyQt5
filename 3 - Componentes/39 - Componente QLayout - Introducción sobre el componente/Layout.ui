@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmLayout</class>
+ <widget class="QDialog" name="frmLayout">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>281</width>
+    <height>163</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QLayout</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>28</y>
+     <width>221</width>
+     <height>103</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="layoutFormulario">
+    <item row="0" column="0">
+     <widget class="QLabel" name="lblNombre">
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="txtNombre"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lblEmail">
+      <property name="text">
+       <string>Email:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="txtEmail"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="btnRegistrar">
+      <property name="text">
+       <string>Registrar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="txtPass"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lblPass">
+      <property name="text">
+       <string>Contraseña:</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
