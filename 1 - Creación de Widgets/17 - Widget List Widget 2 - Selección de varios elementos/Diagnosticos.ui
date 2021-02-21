@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Alfonso López Jiménez</author>
+ <class>frmDiagnostico</class>
+ <widget class="QDialog" name="frmDiagnostico">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>263</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Diagnósticos</string>
+  </property>
+  <widget class="QLabel" name="lblDiagnosticos">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Seleccione los diagnósticos:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblDiagnosSelec">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>161</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Diagnósticos selecionados:</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listDiagnosticos">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>20</y>
+     <width>191</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::MultiSelection</enum>
+   </property>
+   <item>
+    <property name="text">
+     <string>Rayos X: 5 €</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Nivel de Azucar: 3 €</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Prueba de Hemoglobina: 7 €</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Análisis de Orina: 8 €</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Análisis de Sangre: 10 €</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QListWidget" name="listDiagnosSelec">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>140</y>
+     <width>191</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

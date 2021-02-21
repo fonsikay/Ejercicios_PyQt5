@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmLenguajes</class>
+ <widget class="QDialog" name="frmLenguajes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>441</width>
+    <height>123</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Lenguajes de Programación</string>
+  </property>
+  <widget class="QLabel" name="lblLenguaje">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>221</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Seleccione lenguaje de programación:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbLenguaje">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>20</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <item>
+    <property name="text">
+     <string>Python</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Java</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C#</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>PHP</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>JavaScript</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>C++</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>SQL</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="lblLenguajeSelec">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>241</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Lenguaje de programación seleccionado:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtLenguajeSel">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>80</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

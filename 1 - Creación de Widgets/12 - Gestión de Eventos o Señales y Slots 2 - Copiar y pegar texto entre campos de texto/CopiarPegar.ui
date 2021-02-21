@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmCopiarPegar</class>
+ <widget class="QDialog" name="frmCopiarPegar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>251</width>
+    <height>211</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Copiar y Pegar Texto</string>
+  </property>
+  <widget class="QLineEdit" name="txtTexto1">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtTexto2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>160</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCopiar">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>80</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Copiar</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnPegar">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>110</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pegar</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnCopiar</sender>
+   <signal>pressed()</signal>
+   <receiver>txtTexto1</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>46</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnCopiar</sender>
+   <signal>released()</signal>
+   <receiver>txtTexto1</receiver>
+   <slot>copy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>150</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>208</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnPegar</sender>
+   <signal>released()</signal>
+   <receiver>txtTexto2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>102</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnPegar</sender>
+   <signal>released()</signal>
+   <receiver>txtTexto2</receiver>
+   <slot>paste()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>196</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
