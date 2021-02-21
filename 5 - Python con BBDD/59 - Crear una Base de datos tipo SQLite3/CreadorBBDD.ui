@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmCrearBBDD</class>
+ <widget class="QDialog" name="frmCrearBBDD">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>441</width>
+    <height>153</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Creación Bases de Datos</string>
+  </property>
+  <widget class="QLabel" name="lblNombreBBDD">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>32</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre Base de datos:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblInformacion">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>109</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Información:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtNombreBBDD">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>30</y>
+     <width>261</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtInformacion">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>110</y>
+     <width>321</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCrearBBDD">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>60</y>
+     <width>151</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Crear Base de Datos</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txtNombreBBDD</tabstop>
+  <tabstop>btnCrearBBDD</tabstop>
+  <tabstop>txtInformacion</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
