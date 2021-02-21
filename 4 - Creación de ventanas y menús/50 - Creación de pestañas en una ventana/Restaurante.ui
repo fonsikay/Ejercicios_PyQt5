@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmRestaurante</class>
+ <widget class="QDialog" name="frmRestaurante">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>170</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Restaurante</string>
+  </property>
+  <widget class="QTabWidget" name="tabRestaurante">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>421</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tabMenu">
+    <attribute name="icon">
+     <iconset>
+      <normaloff>menu.ico</normaloff>menu.ico</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>Menú</string>
+    </attribute>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>111</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QCheckBox" name="chkPizza">
+        <property name="text">
+         <string>Pizza</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkPasta">
+        <property name="text">
+         <string>Pasta</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkEspanola">
+        <property name="text">
+         <string>Comida Española</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chkOriental">
+        <property name="text">
+         <string>Comida Oriental</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabFormaPago">
+    <attribute name="icon">
+     <iconset>
+      <normaloff>pago.ico</normaloff>pago.ico</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>Forma de Pago</string>
+    </attribute>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QRadioButton" name="rbnDebito">
+        <property name="text">
+         <string>Tarjeta Débito</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbnCredito">
+        <property name="text">
+         <string>Tarjeta Crédito</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbnEfectivo">
+        <property name="text">
+         <string>Efectivo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbnPaypal">
+        <property name="text">
+         <string>PayPal</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabDireccion">
+    <attribute name="icon">
+     <iconset>
+      <normaloff>entrega.ico</normaloff>entrega.ico</iconset>
+    </attribute>
+    <attribute name="title">
+     <string>Dirección de Entrega</string>
+    </attribute>
+    <widget class="QWidget" name="">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>391</width>
+       <height>74</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblDireccion">
+        <property name="text">
+         <string>Dirección:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtDireccion"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblTelefono">
+        <property name="text">
+         <string>Teléfono:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="txtTelefono"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblEmail">
+        <property name="text">
+         <string>Email:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="txtEmail"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
