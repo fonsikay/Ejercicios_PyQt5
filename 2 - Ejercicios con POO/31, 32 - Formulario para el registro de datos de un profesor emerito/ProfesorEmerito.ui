@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmProfesorEmerito</class>
+ <widget class="QDialog" name="frmProfesorEmerito">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>251</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Profesor Emérito: Registro</string>
+  </property>
+  <widget class="QLabel" name="lblIdentidad">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>32</y>
+     <width>61</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Identidad:</string>
+   </property>
+   <property name="buddy">
+    <cstring>txtIdentidad</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblNombre">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>62</y>
+     <width>110</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre Completo:</string>
+   </property>
+   <property name="buddy">
+    <cstring>txtNombre</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTelefono">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>93</y>
+     <width>60</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Teléfono:</string>
+   </property>
+   <property name="buddy">
+    <cstring>txtTelefono</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblEspecialidad">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>122</y>
+     <width>80</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Especialidad:</string>
+   </property>
+   <property name="buddy">
+    <cstring>cmbEsoecialidad</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblReconocimiento">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>152</y>
+     <width>100</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Reconocimiento:</string>
+   </property>
+   <property name="buddy">
+    <cstring>txtReconocimiento</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtIdentidad">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>30</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtNombre">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>60</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtTelefono">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>90</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtReconocimiento">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>150</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cmbEsoecialidad">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>120</y>
+     <width>201</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Informática</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ingeniería</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Literatura</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="btnRegistrar">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>200</y>
+     <width>201</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Registrar</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txtIdentidad</tabstop>
+  <tabstop>txtNombre</tabstop>
+  <tabstop>txtTelefono</tabstop>
+  <tabstop>cmbEsoecialidad</tabstop>
+  <tabstop>txtReconocimiento</tabstop>
+  <tabstop>btnRegistrar</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
