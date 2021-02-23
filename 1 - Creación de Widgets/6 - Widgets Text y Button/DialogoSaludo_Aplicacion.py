@@ -1,4 +1,4 @@
-# Se importan las librerias necesarias.
+# Se importan las librerias necesarias para crear la aplicación.
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication
 
