@@ -1,4 +1,4 @@
-# Se importan las librerias necesarias.
+# Se importan las librerias necesarias para actuar en el programa.
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from pymysql import Error
