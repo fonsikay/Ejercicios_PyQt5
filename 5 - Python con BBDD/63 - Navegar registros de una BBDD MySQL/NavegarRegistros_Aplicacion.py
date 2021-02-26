@@ -103,10 +103,11 @@ class NavegarRegistros_Aplicacion(QDialog):
 
     # Se crea el método que se lanza al pulsar en el botón "registro siguiente".
     def pro_registro_siguiente(self):
-        # Se obtiene el primer registro de la tabla usuarios.
+        # Se obtiene el siguiente registro al que estamos mostrando por el formulario.
         w_sentencia = '''SELECT nombre, apellido1 FROM curso_pyqt.usuarios LIMIT 1 OFFSET ?'''
         w_cursor_reg = self.w_conexion.cursor()
-        w_registros_tabla = w_cursor_reg.executemany(w_sentencia, self.w_num_registro, ).fetchone()
+        w_cursor_reg.execute(w_sentencia, (self.w_num_registro, ))
+        w_registros_tabla = w_cursor_reg.fetchone()
         self.w_num_registro = self.w_num_registro + 1
 
         # Si la consulta ha recuperado datos.
