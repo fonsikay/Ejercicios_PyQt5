@@ -68,8 +68,8 @@ class ConsultaDatosProductos_Aplicacion(QDialog):
                     self.w_conexion = conexion_bbdd(w_nombre_bbdd)
 
                     # Se muestra un mensaje de información al usuario.
-                    self.pro_mensaje_informacion('Se ha conectado a la BBDD {} de forma correcta.'.format(w_nombre_bbdd)
-                                                 , 'BBDD conectada')
+                    self.pro_mensaje_informacion('Se ha conectado a la BBDD {} de forma correcta.'.
+                                                 format(w_nombre_bbdd), 'BBDD conectada')
 
                     # Se desactiva el campo de texto de la BBDD y el botón Conectar.
                     self.uiVentana.txtBBDD.setEnabled(False)
