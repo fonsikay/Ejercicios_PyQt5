@@ -94,8 +94,8 @@ class NavegarRegistros_Aplicacion(QDialog):
         # Se indica que estamos posicionados en el primer registro.
         self.w_num_registro = 1
 
-        # Si la consulta ha recuperado datos.
-        if len(w_registros_tabla) > 0:
+        # Si la consulta ha recuperado datos y está vacía.
+        if w_registros_tabla is not None:
 
             # Se asigna al campo de texto "Código" el primer elemento de la tupla de registros.
             self.uiVentana.txtCodigo.setText(str(w_registros_tabla[0]))
@@ -115,7 +115,7 @@ class NavegarRegistros_Aplicacion(QDialog):
 
         # Si no se recupera registros, se muestra un mensaje al usuario.
         else:
-            self.pro_mensaje_informacion('La tabla de usuarios no tiene registros.', 'Tabla sin registros')
+            self.pro_mensaje_error('La tabla de usuarios no tiene registros.', 'Tabla sin registros')
 
     # Se crea el método que se lanza al pulsar en el botón "registro anterior".
     def pro_registro_anterior(self):
