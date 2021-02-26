@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmConsultaDatos</class>
+ <widget class="QDialog" name="frmConsultaDatos">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>441</width>
+    <height>380</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Consulta y Visualización de Datos</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton#btnConectar{border-radius: 0px}
+QHeaderView::section{background-color:#c5c5c5; font-weight: bold}</string>
+  </property>
+  <widget class="QLabel" name="lblBBDD">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>50</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre Base de Datos:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTabla">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre Tabla:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtBBDD">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>50</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtTabla">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>89</y>
+     <width>171</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>401</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string> Consulta </string>
+   </property>
+   <widget class="QPushButton" name="btnConsultar">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>63</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Consultar Datos</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>consulta.ico</normaloff>consulta.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnConectar">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>24</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Conectar BBDD</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>conexion.ico</normaloff>conexion.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>32</width>
+      <height>32</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QTableWidget" name="tabDatosProductos">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>150</y>
+     <width>401</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="rowCount">
+    <number>6</number>
+   </property>
+   <property name="columnCount">
+    <number>2</number>
+   </property>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <row/>
+   <column/>
+   <column/>
+  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>lblBBDD</zorder>
+  <zorder>lblTabla</zorder>
+  <zorder>txtBBDD</zorder>
+  <zorder>txtTabla</zorder>
+  <zorder>tabDatosProductos</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>txtBBDD</tabstop>
+  <tabstop>btnConectar</tabstop>
+  <tabstop>txtTabla</tabstop>
+  <tabstop>btnConsultar</tabstop>
+  <tabstop>tabDatosProductos</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

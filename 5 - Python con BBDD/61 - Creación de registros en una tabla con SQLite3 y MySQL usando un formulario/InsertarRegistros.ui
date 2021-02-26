@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmInsertarRegistros</class>
+ <widget class="QDialog" name="frmInsertarRegistros">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>342</width>
+    <height>232</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inserción de registros</string>
+  </property>
+  <widget class="QLabel" name="lblBBDD">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Base de datos:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTabla">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>102</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tabla:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblCodigo">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>133</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Código:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblNombre">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>163</y>
+     <width>51</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Nombre:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtBBDD">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>30</y>
+     <width>211</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtTabla">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>100</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Nombre de tabla</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtCodigo">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>130</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Código</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtNombre">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>160</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Nombre</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnConectar">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>60</y>
+     <width>161</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Conectar a la BBDD</string>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Conectar</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>conectar.ico</normaloff>conectar.ico</iconset>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnInsetar">
+   <property name="geometry">
+    <rect>
+     <x>161</x>
+     <y>190</y>
+     <width>161</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>Insertar nuevo registro</string>
+   </property>
+   <property name="text">
+    <string>Insertar Registro</string>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>insertar.ico</normaloff>insertar.ico</iconset>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txtBBDD</tabstop>
+  <tabstop>btnConectar</tabstop>
+  <tabstop>txtTabla</tabstop>
+  <tabstop>txtCodigo</tabstop>
+  <tabstop>txtNombre</tabstop>
+  <tabstop>btnInsetar</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
