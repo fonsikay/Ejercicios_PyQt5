@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>frmContenedorVentanas</class>
+ <widget class="QMainWindow" name="frmContenedorVentanas">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1133</width>
-    <height>670</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>640</width>
+    <height>480</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Ventana Principal</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="wdg_principal">
    <widget class="QMdiArea" name="mdiArea">
     <property name="geometry">
      <rect>
@@ -78,7 +90,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1133</width>
+     <width>640</width>
      <height>21</height>
     </rect>
    </property>

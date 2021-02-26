@@ -136,7 +136,7 @@ class CreacionTablas_Aplicacion(QDialog):
 
             # Se crea la sentencia para crear la tabla con el nombre de la BBDD, el de la tabla y las columnas.
             w_sentencia_creartabla = 'CREATE TABLE {}.{} ({})'.format(w_nombrebbdd, w_nombretabla, w_sentencia_columnas)
-            # Se crea la conexión de la BBDD utilizando el método "conexion_bbdd" del archivo "Conexion.py".
+            # Se crea la conexión de la BBDD utilizando el método "conexion_bbdd" del archivo "Conexion_MySQL.py".
             w_conexion = conexion_bbdd()
             # Se crea el cursor de conexión.
             w_cursor = w_conexion.cursor()

@@ -1,11 +1,11 @@
 # Se importan las librerias necesarias.
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from VentanaSubventanas import MainWindow
+from VentanaSubventana import frmContenedorVentanas
 
 
 # Se crea la clase Aplicación.
-class VentanaSubventanas_Aplicacion(QMainWindow):
+class VentanaSubventana_Aplicacion(QMainWindow):
 
     # Se crea el método del constructor inicializador.
     def __init__(self):
@@ -13,8 +13,8 @@ class VentanaSubventanas_Aplicacion(QMainWindow):
         # Se invoca el constructor padre.
         super().__init__()
         # Se crea una instancia de nuestra ventana diseñada.
-        self.uiVentana = MainWindow()
-        # Se llama al método "setupUi" que esta en la clase "MainWindow" del archivo "VentanaSubventanas.py".
+        self.uiVentana = frmContenedorVentanas()
+        # Se llama al método "setupUi" que esta en la clase "frmContenedorVentanas" del archivo "VentanaSubventanas.py".
         self.uiVentana.setupUi(self)
 
         # Declaración de los controladores de eventos (Event Handler) del menú.
@@ -22,6 +22,9 @@ class VentanaSubventanas_Aplicacion(QMainWindow):
         self.uiVentana.mniCascada.triggered.connect(self.vista_cascada)
         self.uiVentana.mniCuadricula.triggered.connect(self.vista_cuadricula)
         self.uiVentana.mniSubVentanas.triggered.connect(self.vista_subventana)
+
+        self.uiVentana.mdiArea.addSubWindow(self.uiVentana.winPrimeraVent)
+        self.uiVentana.mdiArea.addSubWindow(self.uiVentana.winSegundaVent)
 
         # Se muestra la pantalla.
         self.show()
@@ -56,8 +59,8 @@ if __name__ == '__main__':
 
     # Creamos una aplicación de nuestra ventana.
     app = QApplication(sys.argv)
-    # Creamos una instancia de la clase "VentanaSubventanas_Aplicacion()".
-    ventana = VentanaSubventanas_Aplicacion()
+    # Creamos una instancia de la clase "VentanaSubventana_Aplicacion()".
+    ventana = VentanaSubventana_Aplicacion()
     # Se muestra la pantalla.
     ventana.show()
     # Se indica el método para que cierre la aplicación al pulsar el botón de cerrar.

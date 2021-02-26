@@ -13,6 +13,20 @@
   <property name="windowTitle">
    <string>Creación de Tablas</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+color:white;
+background: #2d89ef;
+border-radius:10px
+}
+
+QPushButton:hover{
+color:white;
+background: #2b5797;
+border-radius:10px;
+font-weight:bold;
+}</string>
+  </property>
   <widget class="QLabel" name="lblNombreBBDD">
    <property name="geometry">
     <rect>
