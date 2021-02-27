@@ -61,7 +61,7 @@ class BusquedaUsuario_Aplicacion(QDialog):
     def pro_buscar_registro(self):
 
         # Se guarda en una variable el código del usuario a buscar.
-        w_txtbuscodigo = self.uiVentana.txtBusCodigo.text()
+        w_txtbuscodigo = self.uiVentana.txtBusCodigo.text().strip()
 
         # Se comprueba si el usuario ha introducido algún texto en el campo de búsqueda.
         if w_txtbuscodigo != '':
