@@ -94,7 +94,7 @@ class NavegarRegistros_Aplicacion(QDialog):
         # Se indica que estamos posicionados en el primer registro.
         self.w_num_registro = 1
 
-        # Si la consulta ha recuperado datos y está vacía.
+        # Si la consulta ha recuperado datos y no está vacía.
         if w_registros_tabla is not None:
 
             # Se asigna al campo de texto "Código" el primer elemento de la tupla de registros.
