@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from PyQt5.QtGui import QIcon
 from pymysql import Error
 from Conexion_PHPMyAdmin import conexion_bbdd
+from passlib.hash import pbkdf2_sha256
 from IniciarSesion import frmIniciarSesion
 
 
@@ -127,7 +128,7 @@ class IniciarSesion_Aplicacion(QDialog):
             # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
             self.pro_comprobar_estado_boton_aceptar()
 
-        # Si la contraseña ha sido rellena y validada.
+        # Si la contraseña ha sido rellena y validada por el patrón.
         else:
 
             # Se muestra la imagen de campo validado auxiliar.
@@ -163,22 +164,40 @@ class IniciarSesion_Aplicacion(QDialog):
 
             # Se consulta en la tabla usuarios los datos del usuario a buscar.
             w_cursor = self.w_conexion.cursor()
-            w_sentencia_sql = '''(SELECT * FROM curso_pyqt.usuarios WHERE email = '{}' AND password = '{}')'''.format(
-                                  str(w_usuario), str(w_contrasena))
+            w_sentencia_sql = '''(SELECT * FROM curso_pyqt.usuarios WHERE email = '{}')'''.format(w_usuario)
             w_cursor.execute(w_sentencia_sql)
             w_registros = w_cursor.fetchone()
 
             # Si la consulta ha recuperado datos y no está vacía.
             if w_registros is not None:
 
-                self.pro_mensaje_un_boton('Información',
-                                          'Bienvenido/a {} {} {}.'.format(w_registros[1], w_registros[2],
-                                                                          w_registros[3]),
-                                          'Conexión establecida',
-                                          None)
+                # Se obtiene la contraseña del usuario que está encriptada en la tabla de usuarios.
+                w_hash_bbdd = w_registros[4]
 
+                # Se comprueba si la contraseña encriptada fuera la misma que la contraseña indicada por el usuario
+                # encriptada.
+                if pbkdf2_sha256.verify(w_contrasena, w_hash_bbdd):
+
+                    # Se muestra un mensaje de información de sesión al usuario.
+                    self.pro_mensaje_un_boton('Información',
+                                              'Bienvenido/a {} {} {}.'.format(w_registros[1], w_registros[2],
+                                                                              w_registros[3]),
+                                              'Conexión establecida',
+                                              None)
+
+                # Si la validación de la contraseña encriptada no es correcta, se muestra un mensaje de eror por
+                # pantalla.
+                else:
+                    self.pro_mensaje_un_boton('Error', 'La clave introducida es incorrecta', 'Acceso Denegado', None)
+                    self.uiVentana.txtContrasena.setText('')
+                    self.uiVentana.txtContrasena.setFocus(True)
+
+            # Si no ha recuperado el registro del usuario, se muestra un mensaje de error por pantalla.
             else:
-                self.pro_mensaje_un_boton('Error', 'El usuario y/o clave es incorrecta', 'Acceso Denegado', None)
+
+                self.pro_mensaje_un_boton('Error', 'El usuario es incorrecto', 'Acceso Denegado', None)
+                self.uiVentana.txtContrasena.setText('')
+                self.uiVentana.txtUsuario.setFocus(True)
 
     # Se crea el método para conectar a la BBDD.
     def pro_conexion_bbdd(self):
@@ -240,10 +259,10 @@ class IniciarSesion_Aplicacion(QDialog):
         w_boton_aceptar.setStyleSheet('QPushButton {color: #ffffff;text-align: center;background-color: '
                                       'qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 '
                                       '#e6e6e6);border: 1px solid #828282;padding: 5px 12px 5px 12px;margin: 4px 8px '
-                                      '4px 8px;border-radius: 3px;min-width: 14px;min-height: 14px;}QPushButton:hover{'
-                                      'color: white;background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1,'
-                                      ' y2:0, stop:0 #2eae35, stop:1 #cae44a);}QPushButton:pressed {background-color: '
-                                      '#2eae35;}')
+                                      '4px 8px;border-radius: 3px;min-width: 14px;min-height: 14px;}QPushButton:hover, '
+                                      'QPushButton:focus{color: white;background-color: qlineargradient(spread:pad, '
+                                      'x1:1, y1:0.545, x2:1, y2:0, stop:0 #2eae35, stop:1 #cae44a);}QPushButton:pressed'
+                                      ' {background-color: #2eae35;}')
         # Se muestra la ventana de aviso.
         w_ventana_mensaje.exec_()
 
@@ -279,18 +298,18 @@ class IniciarSesion_Aplicacion(QDialog):
         w_boton_aceptar.setStyleSheet('QPushButton {color: #ffffff;text-align: center;background-color: '
                                       'qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 '
                                       '#e6e6e6);border: 1px solid #828282;padding: 5px 12px 5px 12px;margin: 4px 8px '
-                                      '4px 8px;border-radius: 3px;min-width: 14px;min-height: 14px;}QPushButton:hover{'
-                                      'color: white;background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1,'
-                                      ' y2:0, stop:0 #2eae35, stop:1 #cae44a);}QPushButton:pressed {background-color: '
-                                      '#2eae35;}')
+                                      '4px 8px;border-radius: 3px;min-width: 14px;min-height: 14px;}QPushButton:hover, '
+                                      'QPushButton:focus{color: white;background-color: qlineargradient(spread:pad, '
+                                      'x1:1, y1:0.545, x2:1, y2:0, stop:0 #2eae35, stop:1 #cae44a);}QPushButton:pressed'
+                                      ' {background-color: #2eae35;}')
         w_boton_cancelar = w_ventana_mensaje.addButton(self.tr("Cancelar"), QMessageBox.RejectRole)
         w_boton_cancelar.setStyleSheet('QPushButton {color: #ffffff; text-align: center; background-color: '
                                        'qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 '
                                        '#e6e6e6); border: 1px solid #828282; padding: 5px 12px 5px 12px; margin: 4px '
                                        '8px 4px 8px; border-radius: 3px; min-width: 14px; min-height: 14px;}'
-                                       'QPushButton:hover{color: white;background-color: qlineargradient(spread:pad, '
-                                       'x1:1, y1:0.545, x2:1, y2:0, stop:0 #95050d, stop:1 #ea0a20);} '
-                                       'QPushButton:pressed {background-color: #95050d;}')
+                                       'QPushButton:hover, QPushButton:focus{color: white;background-color: '
+                                       'qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #95050d, stop:1'
+                                       ' #ea0a20);} QPushButton:pressed {background-color: #95050d;}')
 
         # Se muestra la ventana de aviso.
         w_ventana_mensaje.exec_()
