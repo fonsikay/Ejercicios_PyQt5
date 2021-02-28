@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="imagenes">
+    <file>dato_correcto.ico</file>
+    <file>dato_erroneo.ico</file>
+    <file>acepta.ico</file>
+    <file>cancela.ico</file>
+    <file>acepta2.ico</file>
+    <file>cancela2.ico</file>
+    <file>icono.ico</file>
+    <file>fondo.PNG</file>
+  </qresource>
+</RCC>

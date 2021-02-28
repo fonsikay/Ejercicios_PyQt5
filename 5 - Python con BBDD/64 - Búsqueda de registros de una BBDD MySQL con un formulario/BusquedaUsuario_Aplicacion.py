@@ -1,6 +1,5 @@
 # Se importan las librerias necesarias.
 import sys
-import re
 
 from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from PyQt5.QtGui import QIcon
@@ -42,6 +41,11 @@ class BusquedaUsuario_Aplicacion(QDialog):
 
         # Se realiza la conexion a la BBDD.
         self.pro_conexion_bbdd()
+
+        # Si no se ha podido conectar a la BBDD.
+        if self.w_conexion is None:
+            # Se desactiva el botón "Buscar".
+            self.uiVentana.btnBuscar.setEnabled(False)
 
     # Se crea el método para conectar a la BBDD.
     def pro_conexion_bbdd(self):
