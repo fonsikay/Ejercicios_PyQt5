@@ -7,25 +7,29 @@ from PyQt5.QtGui import QIcon
 from pymysql import Error
 from Conexion_PHPMyAdmin import conexion_bbdd
 from passlib.hash import pbkdf2_sha256
-from IniciarSesion import frmIniciarSesion
+from ModificarContrasena_UI import frmModificarContrasena
 
 
 # Se crea la clase Aplicación.
-class IniciarSesion_Aplicacion(QDialog):
+class ModificarContrasena_App(QDialog):
 
     # Se crea el método del constructor inicializador.
-    def __init__(self):
+    def __init__(self, w_usuario):
 
         # Se invoca el constructor padre.
         super().__init__()
+
+        self.w_usuario = w_usuario
+
         # Se crea una instancia de nuestra ventana diseñada.
-        self.uiVentana = frmIniciarSesion()
-        # Se llama al método "setupUi" que esta en la clase "frmIniciarSesion" del archivo "IniciarSesion_UI.py".
+        self.uiVentana = frmModificarContrasena()
+        # Se llama al método "setupUi" que esta en la clase "frmModificarContrasena" del archivo
+        # "ModificarContrasena_UI.py".
         self.uiVentana.setupUi(self)
         # Se indica un icono para la ventana principal.
         self.setWindowIcon(QIcon('icono.ico'))
         # Se indica el tamaño de la ventana para que no se pueda modificar su tamaño.
-        self.setFixedSize(311, 173)
+        self.setFixedSize(380, 200)
         # Se muestra la pantalla.
         self.show()
 
@@ -37,65 +41,26 @@ class IniciarSesion_Aplicacion(QDialog):
         # Se indica que el límite de tamaño a introducir es de 20 caracteres.
         self.uiVentana.txtContrasena.setMaxLength(20)
 
-        # Se deshabilita el botón de "Iniciar sesión" y se crean dos variables donde se indican si se ha validado
-        # el usuario y contraseña.
-        self.uiVentana.btnAceptar.setEnabled(False)
-        self.w_validacion_usuario = False
+        # Se indica el codigo de usuario a modificar que viene de la ventana de inicio de sesión.
+        self.uiVentana.txtUsuario.setText(self.w_usuario)
+        # Se deshabilita el cuadro de texto del usuario.
+        self.uiVentana.txtUsuario.setEnabled(False)
+
+        # Se deshabilita el botón de "Modificar" y se crean dos variables donde se indican si se ha validado
+        # las dos contraseñas.
+        self.uiVentana.btnModificar.setEnabled(False)
         self.w_validacion_contrasena = False
+        self.w_validacion_nueva_contrasena = False
 
         # Se crea la variable de conexión y de cursor para que se pueda utilizar en el programa.
         self.w_conexion = None
-        self.w_cursor = None
 
         # Declaración de los controladores de eventos (Event Handler).
-        self.uiVentana.btnAceptar.clicked.connect(self.pro_iniciar_sesion)
+        self.uiVentana.btnModificar.clicked.connect(self.pro_modificar_contrasena)
         self.uiVentana.btnCancelar.clicked.connect(self.pro_cancelar_sesion)
-        self.uiVentana.txtUsuario.textChanged.connect(self.pro_validar_usuario)
         self.uiVentana.txtContrasena.textChanged.connect(self.pro_validar_contrasena)
+        self.uiVentana.txtNuevaContrasena.textChanged.connect(self.pro_validar_nueva_contrasena)
 
-    # Se declara el método que se lanza cuando se modifica el texto de la caja del usuario.
-    def pro_validar_usuario(self):
-
-        # Se guarda el texto que introduce el usuario en una variable.
-        w_email = self.uiVentana.txtUsuario.text().strip()
-
-        # Se aplica el patrón de validación para los campos de Email.
-        w_patron = '^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$'
-        # Se indica que el campo a comprobar es el email y se guarda en una variable.
-        w_validar_email = re.match(w_patron, w_email, re.I)
-
-        # Si el texto del email está vacío.
-        if w_email == '':
-
-            # Se muestra la imagen de error auxiliar.
-            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url();')
-            # Se indica que el usuario no esta validado.
-            self.w_validacion_usuario = False
-
-            # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
-            self.pro_comprobar_estado_boton_aceptar()
-
-        # Si el texto del email no ha sido validado por el patrón de emails.
-        elif not w_validar_email:
-
-            # Se muestra la imagen de error auxiliar.
-            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/imagenes/dato_erroneo.ico);')
-            # Se indica que el usuario no esta validado.
-            self.w_validacion_usuario = False
-
-            # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
-            self.pro_comprobar_estado_boton_aceptar()
-
-        # Si el usuario ha sido rellenado y validado.
-        else:
-
-            # Se muestra la imagen de campo validado auxiliar.
-            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/imagenes/dato_correcto.ico);')
-            # Se indica que el usuario esta validado.
-            self.w_validacion_usuario = True
-
-            # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
-            self.pro_comprobar_estado_boton_aceptar()
 
     # Se declara el método que se lanza cuando se modifica el texto de la caja de la contraseña.
     def pro_validar_contrasena(self):
@@ -121,7 +86,7 @@ class IniciarSesion_Aplicacion(QDialog):
         elif not w_validar_contrasena:
 
             # Se quita la imagen de error auxiliar.
-            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/imagenes/dato_erroneo.ico);')
+            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_erroneo.ico);')
             # Se indica que la contraseña no esta validada.
             self.w_validacion_contrasena = False
 
@@ -132,9 +97,48 @@ class IniciarSesion_Aplicacion(QDialog):
         else:
 
             # Se muestra la imagen de campo validado auxiliar.
-            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/imagenes/dato_correcto.ico);')
+            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_correcto.ico);')
             # Se indica que la contraseña esta validada.
             self.w_validacion_contrasena = True
+
+    # Se declara el método que se lanza cuando se modifica el texto de la caja de la contraseña.
+    def pro_validar_nueva_contrasena(self):
+
+        w_contrasena = self.uiVentana.txtNuevaContrasena.text().strip()
+
+        # Se aplica el patrón de validación para los campos de texto alfanuméricos.
+        w_patron = '^[a-zA-Z0-9]*$'
+        # Se indica que el campo a comprobar es la contraseña y se guarda en una variable.
+        w_validar_contrasena = re.match(w_patron, w_contrasena, re.I)
+
+        # Si la contraseña esta vacía.
+        if w_contrasena == '':
+            # Se quita la imagen de error auxiliar.
+            self.uiVentana.btnValidaNuevaContrasena.setStyleSheet('image: url();')
+            # Se indica que la contraseña no esta validada.
+            self.w_validacion_nueva_contrasena = False
+
+            # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
+            self.pro_comprobar_estado_boton_aceptar()
+
+        # Si la contraseña no ha sido validada por el patrón de alfanuméricos.
+        elif not w_validar_contrasena:
+
+            # Se quita la imagen de error auxiliar.
+            self.uiVentana.btnValidaNuevaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_erroneo.ico);')
+            # Se indica que la contraseña no esta validada.
+            self.w_validacion_nueva_contrasena = False
+
+            # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
+            self.pro_comprobar_estado_boton_aceptar()
+
+        # Si la contraseña ha sido rellena y validada por el patrón.
+        else:
+
+            # Se muestra la imagen de campo validado auxiliar.
+            self.uiVentana.btnValidaNuevaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_correcto.ico);')
+            # Se indica que la contraseña esta validada.
+            self.w_validacion_nueva_contrasena = True
 
             # Se comprueba la validación de los campos para activar o no el botón "Iniciar Sesión".
             self.pro_comprobar_estado_boton_aceptar()
@@ -144,60 +148,54 @@ class IniciarSesion_Aplicacion(QDialog):
     def pro_comprobar_estado_boton_aceptar(self):
 
         # Si la validación de los dos campos se ha realizado de forma correcta, se activa el botón "Iniciar sesión".
-        if self.w_validacion_usuario and self.w_validacion_contrasena:
-            self.uiVentana.btnAceptar.setEnabled(True)
+        if self.w_validacion_nueva_contrasena and self.w_validacion_contrasena:
+            self.uiVentana.btnModificar.setEnabled(True)
         else:
-            self.uiVentana.btnAceptar.setEnabled(False)
+            self.uiVentana.btnModificar.setEnabled(False)
 
-    # Se crea el método que inicia la sesión del usuario en la BBDD.
-    def pro_iniciar_sesion(self):
+    # Se crea el método que modifica la contraseña del usuario en la BBDD.
+    def pro_modificar_contrasena(self):
 
-        # Se realiza la conexion a la BBDD.
-        self.pro_conexion_bbdd()
-
-        # Se guarda el usuario y la contraseña introducida.
         w_usuario = self.uiVentana.txtUsuario.text().strip()
-        w_contrasena = self.uiVentana.txtContrasena.text().strip()
+        w_antigua_contrasena = self.uiVentana.txtContrasena.text().strip()
+        w_nueva_contrasena = self.uiVentana.txtNuevaContrasena.text().strip()
 
-        # Si la conexión ha sido correcta y w_conexion no esta vacía.
-        if self.w_conexion is not None:
+        # Si la nueva contraseña es distinta a la anterior contraseña.
+        if w_antigua_contrasena != w_nueva_contrasena:
 
-            # Se consulta en la tabla usuarios los datos del usuario a buscar.
-            w_cursor = self.w_conexion.cursor()
-            w_sentencia_sql = '''(SELECT * FROM curso_pyqt.usuarios WHERE email = '{}')'''.format(w_usuario)
-            w_cursor.execute(w_sentencia_sql)
-            w_registros = w_cursor.fetchone()
+            # Se crea la nueva contraseña de forma encriptada.
+            w_nueva_contrasena_encriptada = pbkdf2_sha256.hash(w_nueva_contrasena)
 
-            # Si la consulta ha recuperado datos y no está vacía.
-            if w_registros is not None:
+            # Se realiza la conexion a la BBDD.
+            self.pro_conexion_bbdd()
 
-                # Se obtiene la contraseña del usuario que está encriptada en la tabla de usuarios.
-                w_hash_bbdd = w_registros[4]
+            # Si la conexión ha sido correcta y w_conexion no esta vacía.
+            if self.w_conexion is not None:
 
-                # Se comprueba si la contraseña encriptada fuera la misma que la contraseña indicada por el usuario
-                # encriptada.
-                if pbkdf2_sha256.verify(w_contrasena, w_hash_bbdd):
+                # Se actualiza la contraseña encriptada para el usuario indicado.
+                w_cursor = self.w_conexion.cursor()
+                w_sentencia_sql = '''UPDATE curso_pyqt.usuarios SET password = '{}' WHERE email = '{}' '''\
+                                  .format(w_nueva_contrasena_encriptada, w_usuario)
+                print(w_sentencia_sql)
+                w_cursor.execute(w_sentencia_sql)
+                # Se comita el insert realizado.
+                self.w_conexion.commit()
 
-                    # Se muestra un mensaje de información de sesión al usuario.
-                    self.pro_mensaje_un_boton('Información',
-                                              'Bienvenido/a {} {} {}.'.format(w_registros[1], w_registros[2],
-                                                                              w_registros[3]),
-                                              'Conexión establecida',
-                                              None)
+                # Se muestra un mensaje de información de sesión al usuario.
+                self.pro_mensaje_un_boton('Información',
+                                          'Se ha actualizado la contraseña del usuario: {}.'.format(w_usuario),
+                                          'Contraseña actualizada',
+                                          None)
 
-                # Si la validación de la contraseña encriptada no es correcta, se muestra un mensaje de eror por
-                # pantalla.
-                else:
-                    self.pro_mensaje_un_boton('Error', 'La clave introducida es incorrecta', 'Acceso Denegado', None)
-                    self.uiVentana.txtContrasena.setText('')
-                    self.uiVentana.txtContrasena.setFocus(True)
-
-            # Si no ha recuperado el registro del usuario, se muestra un mensaje de error por pantalla.
-            else:
-
-                self.pro_mensaje_un_boton('Error', 'El usuario es incorrecto', 'Acceso Denegado', None)
-                self.uiVentana.txtContrasena.setText('')
-                self.uiVentana.txtUsuario.setFocus(True)
+        else:
+            self.pro_mensaje_un_boton('Información',
+                                      'La nueva contraseña introducida es la misma que la contraseña anterior por lo '
+                                      'que debe de indicar una distinta.',
+                                      'Contraseñas iguales',
+                                      None)
+            self.uiVentana.txtContrasena.setText('')
+            self.uiVentana.txtNuevaContrasena.setText('')
+            self.uiVentana.txtContrasena.setFocus(True)
 
     # Se crea el método para conectar a la BBDD.
     def pro_conexion_bbdd(self):
@@ -218,13 +216,18 @@ class IniciarSesion_Aplicacion(QDialog):
 
         # Se muestra un mensaje de advertencia al usuario para que confirme si quiere cancelar el login.
         w_boton_pulsado = self.fun_mensaje_dos_botones('Advertencia',
-                                                       '¿Esta seguro/a de querer cancelar el inicio de sesión?.',
-                                                       'Cancelar Iniciar Sesión',
+                                                       '¿Esta seguro/a de querer cancelar la modificación de la '
+                                                       'contraseña?.',
+                                                       'Cancelar Modificación de contraseña',
                                                        None)
-        # Si ha pulsado el botón "Aceptar", se cierra la aplicación y si es "Cancelar", no hace nada.
+
+        # Si ha pulsado el botón "Aceptar", se cierra la ventana y si es "Cancelar", no hace nada.
         if w_boton_pulsado == 'Aceptar':
-            sys.exit()
+
+            self.hide()
+
         elif w_boton_pulsado == 'Cancelar':
+
             pass
 
     # Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
@@ -327,8 +330,8 @@ if __name__ == '__main__':
 
     # Creamos una aplicación de nuestra ventana.
     app = QApplication(sys.argv)
-    # Creamos una instancia de la clase "IniciarSesion_Aplicacion()".
-    ventana = IniciarSesion_Aplicacion()
+    # Creamos una instancia de la clase "ModificarContrasena_App()".
+    ventana = ModificarContrasena_App()
     # Se muestra la pantalla.
     ventana.show()
     # Se indica el método para que cierre la aplicación al pulsar el botón de cerrar.

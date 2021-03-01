@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>fonsiApp</class>
+ <widget class="QMainWindow" name="fonsiApp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1021</width>
+    <height>519</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1021</width>
+    <height>519</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1021</width>
+    <height>519</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>AM Sport - Menú Principal</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="source.qrc">
+    <normaloff>:/iconos/iconos/icono_principal.ico</normaloff>:/iconos/iconos/icono_principal.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLineEdit {
+    color: black;
+    background-color: white;
+    selection-color: white;
+    selection-background-color: #3874f2;
+	padding: 1px;
+    border-style: solid;
+    border: 1px solid #b6b6b6;
+    border-radius: 3px;
+}
+
+QLineEdit:focus{
+    color: black;
+    background-color: white;
+    selection-color: white;
+    selection-background-color: #3874f2;
+	padding: 1px;
+    border-style: solid;
+    border: 1px solid #5e90fa;
+    border-radius: 3px;
+}</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1131</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>Fondo043.jpg</pixmap>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1021</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Ficheros">
+    <property name="title">
+     <string>&amp;Ficheros</string>
+    </property>
+    <widget class="QMenu" name="menuFichas">
+     <property name="title">
+      <string>Fichas</string>
+     </property>
+     <property name="icon">
+      <iconset resource="source.qrc">
+       <normaloff>:/iconos/iconos/ficha.ico</normaloff>:/iconos/iconos/ficha.ico</iconset>
+     </property>
+     <addaction name="actionClientes"/>
+     <addaction name="actionEmpresas"/>
+    </widget>
+    <widget class="QMenu" name="menuSocios">
+     <property name="title">
+      <string>Socios</string>
+     </property>
+     <property name="icon">
+      <iconset resource="source.qrc">
+       <normaloff>:/iconos/iconos/icono.ico</normaloff>:/iconos/iconos/icono.ico</iconset>
+     </property>
+     <addaction name="actionCuotas_de_Socios"/>
+     <addaction name="actionSocio"/>
+    </widget>
+    <addaction name="menuFichas"/>
+    <addaction name="menuSocios"/>
+    <addaction name="separator"/>
+    <addaction name="actionIniciar_Sesi_n"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menu_Ficheros"/>
+  </widget>
+  <action name="actionClientes">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/clientes.ico</normaloff>:/iconos/iconos/clientes.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Clientes</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+C</string>
+   </property>
+  </action>
+  <action name="actionEmpresas">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/empresas.ico</normaloff>:/iconos/iconos/empresas.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Empresas</string>
+   </property>
+  </action>
+  <action name="actionCuotas_de_Socios">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/euros.ico</normaloff>:/iconos/iconos/euros.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Cuotas de Socios</string>
+   </property>
+  </action>
+  <action name="actionSocio">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/icono.ico</normaloff>:/iconos/iconos/icono.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Socios</string>
+   </property>
+  </action>
+  <action name="actionIniciar_Sesi_n">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/iniciar_sesion.ico</normaloff>:/iconos/iconos/iniciar_sesion.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Iniciar Sesión</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="icon">
+    <iconset resource="source.qrc">
+     <normaloff>:/iconos/iconos/salir.ico</normaloff>:/iconos/iconos/salir.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="source.qrc"/>
+ </resources>
+ <connections/>
+</ui>

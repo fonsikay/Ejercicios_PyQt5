@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmModificarContrasena</class>
+ <widget class="QDialog" name="frmModificarContrasena">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>380</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Modificar Contraseña</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="source.qrc">
+    <normaloff>:/iconos/iconos/candado.ico</normaloff>:/iconos/iconos/candado.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton#btnAceptar, #btnCancelar {
+    color: #ffffff;
+    text-align: center;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #b6b6b6, stop:1 #e6e6e6);
+    border: 1px solid #828282;
+    padding: 5px 12px 5px 12px;
+    margin: 4px 8px 4px 8px;
+    border-radius: 3px;
+    min-width: 14px;
+    min-height: 14px;
+}
+
+QPushButton#btnAceptar:hover, #btnAceptar:focus{
+    color: white;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #2eae35, stop:1 #cae44a);
+}
+
+QPushButton#btnCancelar:hover, #btnCancelar:focus{
+    color: white;
+    background-color: qlineargradient(spread:pad, x1:1, y1:0.545, x2:1, y2:0, stop:0 #95050d, stop:1 #ea0a20);
+}
+
+
+QPushButton#btnAceptar:pressed {
+    background-color: #2eae35;
+}
+
+QPushButton#btnCancelar:pressed {
+    background-color: #95050d;
+}
+
+QPushButton#btnValidaUsuario, #btnValidaContrasena, #btnValidaNuevaContrasena{
+background-color: transparent;
+}
+
+QLineEdit {
+    color: black;
+    background-color: white;
+    selection-color: white;
+    selection-background-color: #3874f2;
+	padding: 1px;
+    border-style: solid;
+    border: 1px solid #b6b6b6;
+    border-radius: 3px;
+}
+
+QLineEdit:focus{
+    color: black;
+    background-color: white;
+    selection-color: white;
+    selection-background-color: #3874f2;
+	padding: 1px;
+    border-style: solid;
+    border: 1px solid #5e90fa;
+    border-radius: 3px;
+
+}</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>311</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formUsuario">
+    <item row="0" column="0">
+     <widget class="QLabel" name="lblUsuario">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Usuario:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="txtUsuario"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="lblContrasena">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Anterior Contraseña:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="txtContrasena">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lblNuevaContrasena">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nueva Contraseña:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="txtNuevaContrasena"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="lblTitulo">
+   <property name="geometry">
+    <rect>
+     <x>108</x>
+     <y>12</y>
+     <width>181</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Modificar Contraseña</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAceptar">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>150</y>
+     <width>121</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Modificar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnCancelar">
+   <property name="geometry">
+    <rect>
+     <x>228</x>
+     <y>150</y>
+     <width>121</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancelar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnValidaUsuario">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>60</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnValidaContrasena">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>85</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnValidaNuevaContrasena">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>113</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>txtUsuario</tabstop>
+  <tabstop>txtContrasena</tabstop>
+  <tabstop>txtNuevaContrasena</tabstop>
+  <tabstop>btnAceptar</tabstop>
+  <tabstop>btnCancelar</tabstop>
+  <tabstop>btnValidaUsuario</tabstop>
+  <tabstop>btnValidaNuevaContrasena</tabstop>
+  <tabstop>btnValidaContrasena</tabstop>
+ </tabstops>
+ <resources>
+  <include location="source.qrc"/>
+ </resources>
+ <connections/>
+</ui>

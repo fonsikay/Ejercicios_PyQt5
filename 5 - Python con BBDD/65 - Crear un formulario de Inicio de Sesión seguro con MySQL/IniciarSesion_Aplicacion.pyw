@@ -20,7 +20,7 @@ class IniciarSesion_Aplicacion(QDialog):
         super().__init__()
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = frmIniciarSesion()
-        # Se llama al método "setupUi" que esta en la clase "frmIniciarSesion" del archivo "IniciarSesion.py".
+        # Se llama al método "setupUi" que esta en la clase "frmIniciarSesion" del archivo "IniciarSesion_UI.py".
         self.uiVentana.setupUi(self)
         # Se indica un icono para la ventana principal.
         self.setWindowIcon(QIcon('icono.ico'))

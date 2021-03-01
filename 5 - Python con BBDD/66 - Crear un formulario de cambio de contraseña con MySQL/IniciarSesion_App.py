@@ -7,11 +7,13 @@ from PyQt5.QtGui import QIcon
 from pymysql import Error
 from Conexion_PHPMyAdmin import conexion_bbdd
 from passlib.hash import pbkdf2_sha256
-from IniciarSesion import frmIniciarSesion
+from IniciarSesion_UI import frmIniciarSesion
+from ModificarContrasena_App import ModificarContrasena_App
+from PyQt5.QtCore import Qt
 
 
 # Se crea la clase Aplicación.
-class IniciarSesion_Aplicacion(QDialog):
+class IniciarSesion_App(QDialog):
 
     # Se crea el método del constructor inicializador.
     def __init__(self):
@@ -25,7 +27,9 @@ class IniciarSesion_Aplicacion(QDialog):
         # Se indica un icono para la ventana principal.
         self.setWindowIcon(QIcon('icono.ico'))
         # Se indica el tamaño de la ventana para que no se pueda modificar su tamaño.
-        self.setFixedSize(311, 173)
+        self.setFixedSize(311, 220)
+
+        self.setWindowFlags(Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint | Qt.MSWindowsFixedSizeDialogHint)
         # Se muestra la pantalla.
         self.show()
 
@@ -50,6 +54,7 @@ class IniciarSesion_Aplicacion(QDialog):
         # Declaración de los controladores de eventos (Event Handler).
         self.uiVentana.btnAceptar.clicked.connect(self.pro_iniciar_sesion)
         self.uiVentana.btnCancelar.clicked.connect(self.pro_cancelar_sesion)
+        self.uiVentana.btnResetPass.clicked.connect(self.pro_cambiar_contrasena)
         self.uiVentana.txtUsuario.textChanged.connect(self.pro_validar_usuario)
         self.uiVentana.txtContrasena.textChanged.connect(self.pro_validar_contrasena)
 
@@ -79,7 +84,7 @@ class IniciarSesion_Aplicacion(QDialog):
         elif not w_validar_email:
 
             # Se muestra la imagen de error auxiliar.
-            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/imagenes/dato_erroneo.ico);')
+            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/iconos/iconos/dato_erroneo.ico);')
             # Se indica que el usuario no esta validado.
             self.w_validacion_usuario = False
 
@@ -90,7 +95,7 @@ class IniciarSesion_Aplicacion(QDialog):
         else:
 
             # Se muestra la imagen de campo validado auxiliar.
-            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/imagenes/dato_correcto.ico);')
+            self.uiVentana.btnValidaUsuario.setStyleSheet('image: url(:/iconos/iconos/dato_correcto.ico);')
             # Se indica que el usuario esta validado.
             self.w_validacion_usuario = True
 
@@ -121,7 +126,8 @@ class IniciarSesion_Aplicacion(QDialog):
         elif not w_validar_contrasena:
 
             # Se quita la imagen de error auxiliar.
-            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/imagenes/dato_erroneo.ico);')
+            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_erroneo.ico);')
+
             # Se indica que la contraseña no esta validada.
             self.w_validacion_contrasena = False
 
@@ -132,7 +138,7 @@ class IniciarSesion_Aplicacion(QDialog):
         else:
 
             # Se muestra la imagen de campo validado auxiliar.
-            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/imagenes/dato_correcto.ico);')
+            self.uiVentana.btnValidaContrasena.setStyleSheet('image: url(:/iconos/iconos/dato_correcto.ico);')
             # Se indica que la contraseña esta validada.
             self.w_validacion_contrasena = True
 
@@ -226,6 +232,17 @@ class IniciarSesion_Aplicacion(QDialog):
             sys.exit()
         elif w_boton_pulsado == 'Cancelar':
             pass
+
+    # Se crea el método que llama a la ventana de cambio de contraseña.
+    def pro_cambiar_contrasena(self):
+
+        w_usuario = self.uiVentana.txtUsuario.text().strip()
+
+        # Se llama a la ventana para modificar la contraseña.
+        ModificarContrasena_App(w_usuario).exec_()
+
+        # Se indica que el foco vuelva al campo del usuario.
+        self.uiVentana.txtUsuario.setFocus(True)
 
     # Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
     def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):
@@ -327,8 +344,8 @@ if __name__ == '__main__':
 
     # Creamos una aplicación de nuestra ventana.
     app = QApplication(sys.argv)
-    # Creamos una instancia de la clase "IniciarSesion_Aplicacion()".
-    ventana = IniciarSesion_Aplicacion()
+    # Creamos una instancia de la clase "IniciarSesion_App()".
+    ventana = IniciarSesion_App()
     # Se muestra la pantalla.
     ventana.show()
     # Se indica el método para que cierre la aplicación al pulsar el botón de cerrar.

@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="iconos">
+    <file>iconos/dato_correcto.ico</file>
+    <file>iconos/dato_erroneo.ico</file>
+    <file>iconos/candado.ico</file>
+    <file>iconos/icono.ico</file>
+  </qresource>
+</RCC>

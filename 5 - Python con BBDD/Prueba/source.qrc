@@ -1,0 +1,24 @@
+<RCC>
+  <qresource prefix="iconos">
+    <file>iconos/ficha.ico</file>
+    <file>iconos/salir.ico</file>
+    <file>iconos/euros.ico</file>
+    <file>iconos/añadir.ico</file>
+    <file>iconos/clientes.ico</file>
+    <file>iconos/empresas.ico</file>
+    <file>iconos/borrar.ico</file>
+    <file>iconos/buscar.ico</file>
+    <file>iconos/cancelar_sesion.ico</file>
+    <file>iconos/confirmar.ico</file>
+    <file>iconos/dato_correcto.ico</file>
+    <file>iconos/dato_erroneo.ico</file>
+    <file>iconos/deshacer.ico</file>
+    <file>iconos/icono.ico</file>
+    <file>iconos/icono_principal.ico</file>
+    <file>iconos/iniciar_sesion.ico</file>
+    <file>iconos/modificar.ico</file>
+  </qresource>
+  <qresource prefix="fondo">
+    <file>Fondo043.jpg</file>
+  </qresource>
+</RCC>
