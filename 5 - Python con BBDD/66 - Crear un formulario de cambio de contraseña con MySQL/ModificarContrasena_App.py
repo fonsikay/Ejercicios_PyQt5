@@ -176,16 +176,24 @@ class ModificarContrasena_App(QDialog):
                 w_cursor = self.w_conexion.cursor()
                 w_sentencia_sql = '''UPDATE curso_pyqt.usuarios SET password = '{}' WHERE email = '{}' '''\
                                   .format(w_nueva_contrasena_encriptada, w_usuario)
-                print(w_sentencia_sql)
                 w_cursor.execute(w_sentencia_sql)
-                # Se comita el insert realizado.
+
+                # Se comita el cambio realizado.
                 self.w_conexion.commit()
 
-                # Se muestra un mensaje de información de sesión al usuario.
-                self.pro_mensaje_un_boton('Información',
-                                          'Se ha actualizado la contraseña del usuario: {}.'.format(w_usuario),
-                                          'Contraseña actualizada',
-                                          None)
+                # Si se ha actualizado un registro, es que ha modificado la contraseña.
+                if w_cursor.rowcount == 1:
+
+                    # Se muestra un mensaje de información de sesión al usuario.
+                    self.pro_mensaje_un_boton('Información',
+                                              'Se ha actualizado la contraseña del usuario: {}.'.format(w_usuario),
+                                              'Contraseña actualizada',
+                                              None)
+                    self.hide()
+
+                else:
+                    self.pro_mensaje_un_boton('Advertencia', 'No se pudo actualizar la contraseña del usuario',
+                                              'Actualización errónea', None)
 
         else:
             self.pro_mensaje_un_boton('Información',
