@@ -17,12 +17,6 @@ def conexion_bbdd(w_nombre_bbdd):
 
     # Se declara el Objeto de conexión a la BBDD con los parámetros necesarios para conectarse a nuestra BBDD MySQL.
 
-#    w_conexion = pymysql.connect(host="den1.mysql2.gear.host",
-#                                user=w_nombre_bbdd,             #"gestionusuarios"
-#                                 password="Lo8YI~254f_1",
-#                                 database="gestionusuarios"
-#                                 )
-
     w_conexion = pymysql.connect(host="localhost",
                                  user="root",
                                  password="",

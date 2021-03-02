@@ -219,7 +219,7 @@ class InsertarRegistrosMySQL_Aplicacion(QDialog):
         # Como no tenemos forma de acceder a una BBDD de administrador, pues nos conectamos primero a nuestra
         # BBDD y comprobamos si esa base de datos existe con la consulta indicada filtrando por la BBDD que
         # se ha indicado en el formulario.
-        w_conexion_bbdd = conexion_bbdd('gestionusuarios')
+        w_conexion_bbdd = conexion_bbdd('phpmyadmin')
         w_cursor_bbdd = w_conexion_bbdd.cursor()
         w_sentencia = '''(SELECT * FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '{}')'''.format(w_nombre_bbdd)
         w_cursor_bbdd.execute(w_sentencia)
@@ -266,7 +266,7 @@ class InsertarRegistrosMySQL_Aplicacion(QDialog):
 
         # Se comprueba si ya existe el registro insertado en la tabla.
         w_cursor = self.w_conexion.cursor()
-        w_sentencia = '''SELECT * FROM {}.{} WHERE id = {}'''.format(w_nombre_bbdd, w_nombre_tabla, w_id)
+        w_sentencia = '''SELECT * FROM {}.{} WHERE codigo = {}'''.format(w_nombre_bbdd, w_nombre_tabla, w_id)
         w_cursor.execute(w_sentencia)
         w_resultado_sql = w_cursor.fetchall()
 
@@ -289,7 +289,7 @@ class InsertarRegistrosMySQL_Aplicacion(QDialog):
         # Se crea el objeto cursor para luego lanzar la inserción.
         w_cursor = self.w_conexion.cursor()
         # Se crea la sentencia de la inserción del registro.
-        w_sentencia = '''INSERT INTO {}.{} (id, nombre) VALUES ({}, '{}')'''. \
+        w_sentencia = '''INSERT INTO {}.{} (codigo, nombre) VALUES ({}, '{}')'''. \
             format(w_nombre_bbdd, w_nombre_tabla, w_id, w_nombre)
         # Se ejecuta la sentencia de inserción.
         w_cursor.execute(w_sentencia)
