@@ -88,9 +88,9 @@ class BusquedaUsuario_Aplicacion(QDialog):
                     self.uiVentana.txtApellido1.setText(w_registros[2])
                     self.uiVentana.txtApellido2.setText(w_registros[3])
                     self.uiVentana.txtContrasena.setText(w_registros[4])
-                    self.uiVentana.txtEmail.setText(w_registros[5])
-                    self.uiVentana.txtFecCreacion.setText(str(w_registros[6]))
-                    self.uiVentana.txtUsuCreador.setText(w_registros[7])
+                    self.uiVentana.txtEmail.setText(w_registros[6])
+                    self.uiVentana.txtFecCreacion.setText(str(w_registros[7]))
+                    self.uiVentana.txtUsuCreador.setText(w_registros[8])
 
                 # Si no se recupera registros, se muestra un mensaje al usuario.
                 else:
