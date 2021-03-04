@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="iconosBarra">
+    <file>iconos/añadir.ico</file>
+    <file>iconos/borrar.ico</file>
+    <file>iconos/buscar.ico</file>
+    <file>iconos/cancelar_sesion.ico</file>
+    <file>iconos/clientes.ico</file>
+    <file>iconos/confirmar.ico</file>
+    <file>iconos/deshacer.ico</file>
+    <file>iconos/empresas.ico</file>
+    <file>iconos/iniciar_sesion.ico</file>
+    <file>iconos/modificar.ico</file>
+  </qresource>
+</RCC>

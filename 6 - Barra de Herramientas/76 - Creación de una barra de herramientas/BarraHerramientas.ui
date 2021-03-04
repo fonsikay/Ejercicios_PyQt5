@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmBarraHerramientas</class>
+ <widget class="QMainWindow" name="frmBarraHerramientas">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Barra de Herramientas</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="barraMenu">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="mniNuevo"/>
+   <addaction name="mniModificar"/>
+   <addaction name="mniEliminar"/>
+  </widget>
+  <action name="mniNuevo">
+   <property name="icon">
+    <iconset resource="recurso.qrc">
+     <normaloff>:/iconosBarra/iconos/añadir.ico</normaloff>:/iconosBarra/iconos/añadir.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+   <property name="toolTip">
+    <string>Crea un usuario</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+N</string>
+   </property>
+  </action>
+  <action name="mniModificar">
+   <property name="icon">
+    <iconset resource="recurso.qrc">
+     <normaloff>:/iconosBarra/iconos/modificar.ico</normaloff>:/iconosBarra/iconos/modificar.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Modificar</string>
+   </property>
+   <property name="toolTip">
+    <string>Modifica un usuario</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+M</string>
+   </property>
+  </action>
+  <action name="mniEliminar">
+   <property name="icon">
+    <iconset resource="recurso.qrc">
+     <normaloff>:/iconosBarra/iconos/borrar.ico</normaloff>:/iconosBarra/iconos/borrar.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Eliminar</string>
+   </property>
+   <property name="toolTip">
+    <string>Elimina un usuario</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+E</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="recurso.qrc"/>
+ </resources>
+ <connections/>
+</ui>
