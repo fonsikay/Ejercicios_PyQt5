@@ -4,7 +4,6 @@ import re
 
 from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import Qt
 from Conexion_PHPMyAdmin import conexion_bbdd
 from passlib.hash import pbkdf2_sha256
 from pymysql import Error
@@ -14,11 +13,11 @@ from EliminarUsuario import frmEliminarUsuario
 # Se crea la clase Aplicación.
 class EliminarUsuario_Aplicacion(QDialog):
 
-    # Se crea el método del constructor inicializador.
-    def __init__(self):
+    # Se invoca el constructor padre indicando la ventana a la que va a depender.
+    def __init__(self, parent=None):
 
-        # Se invoca el constructor padre.
-        super().__init__()
+        # Se invoca el constructor padre indicando la ventana a la que va a depender.
+        super().__init__(parent)
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = frmEliminarUsuario()
         # Se llama al método "setupUi" que esta en la clase "frmEliminarUsuario" del archivo "EliminarUsuario.py".
@@ -27,8 +26,6 @@ class EliminarUsuario_Aplicacion(QDialog):
         self.setWindowIcon(QIcon('icono.ico'))
         # Se indica el tamaño de la ventana para que no se pueda modificar su tamaño.
         self.setFixedSize(311, 173)
-        # Se indica que solo muestre el aspa para cerrar la ventana en la barra de título.
-        self.setWindowFlags(Qt.WindowCloseButtonHint | Qt.MSWindowsFixedSizeDialogHint)
         # Se muestra la pantalla.
         self.show()
 

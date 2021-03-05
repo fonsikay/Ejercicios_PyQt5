@@ -11,11 +11,11 @@ from pymysql import Error
 # Se crea la clase Aplicación.
 class InsertarRegistrosMySQL_Aplicacion(QDialog):
 
-    # Se crea el método del constructor inicializador.
-    def __init__(self):
+    # Se invoca el constructor padre indicando la ventana a la que va a depender.
+    def __init__(self, parent=None):
 
-        # Se invoca el constructor padre.
-        super().__init__()
+        # Se invoca el constructor padre indicando la ventana a la que va a depender.
+        super().__init__(parent)
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = frmInsertarRegistros()
         # Se llama al método "setupUi" que esta en la clase "frmInsertarRegistros" del archivo "InsertarRegistros.py".

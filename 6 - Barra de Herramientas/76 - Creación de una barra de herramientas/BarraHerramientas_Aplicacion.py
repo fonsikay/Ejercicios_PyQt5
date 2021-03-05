@@ -12,10 +12,10 @@ from EliminarUsuario_Aplicacion import EliminarUsuario_Aplicacion
 class BarraHerramientas_Aplicacion(QMainWindow):
 
     # Se crea el método del constructor inicializador.
-    def __init__(self):
+    def __init__(self, parent=None):
 
         # Se invoca el constructor padre.
-        super().__init__()
+        super().__init__(parent)
         # Se crea una instancia de nuestra ventana diseñada.
         self.uiVentana = frmBarraHerramientas()
         # Se llama al método "setupUi" que esta en la clase "frmBarraHerramientas" del archivo "BarraHerramientas.py".
@@ -24,6 +24,7 @@ class BarraHerramientas_Aplicacion(QMainWindow):
         self.setWindowIcon(QIcon('icono.ico'))
         # Se indica el tamaño de la ventana para que no se pueda modificar su tamaño.
         self.setFixedSize(474, 361)
+
         # Se muestra la pantalla.
         self.show()
 
@@ -34,15 +35,24 @@ class BarraHerramientas_Aplicacion(QMainWindow):
 
     # Se crea el método que llama a la ventana de inserción de datos de la clase "InsertarRegistrosMySQL_Aplicacion".
     def pro_nuevo_usuario(self):
-        InsertarRegistrosMySQL_Aplicacion().exec_()
+        # Se crea un objeto de la ventana secundaria "Nuevo usuario".
+        w_ven_nuevo_usuario = InsertarRegistrosMySQL_Aplicacion(self)
+        # Se muestra la ventana de "Nuevo Usuario".
+        w_ven_nuevo_usuario.show()
 
-    # Se crea el método que llama a la ventana de inserción de datos de la clase "BusquedaUsuario_Aplicacion".
+    # Se crea el método que llama a la ventana de busqueda de usuario de la clase "BusquedaUsuario_Aplicacion".
     def pro_buscar_usuario(self):
-        BusquedaUsuario_Aplicacion().exec_()
+        # Se crea un objeto de la ventana secundaria "Buscar usuario".
+        w_ven_buscar_usuario = BusquedaUsuario_Aplicacion(self)
+        # Se muestra la ventana de "Buscar Usuario".
+        w_ven_buscar_usuario.show()
 
-    # Se crea el método que llama a la ventana de inserción de datos de la clase "EliminarUsuario_Aplicacion".
+    # Se crea el método que llama a la ventana para el borrado de datos de la clase "EliminarUsuario_Aplicacion".
     def pro_eliminar_usuario(self):
-        EliminarUsuario_Aplicacion().exec_()
+        # Se crea un objeto de la ventana secundaria "Eliminar usuario".
+        w_ven_eliminar_usuario = EliminarUsuario_Aplicacion(self)
+        # Se muestra la ventana de "Eliminar Usuario".
+        w_ven_eliminar_usuario.show()
 
     # Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
     def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):

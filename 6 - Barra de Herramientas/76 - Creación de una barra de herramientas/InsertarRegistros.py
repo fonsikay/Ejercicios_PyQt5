@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class frmInsertarRegistros(object):
     def setupUi(self, frmInsertarRegistros):
         frmInsertarRegistros.setObjectName("frmInsertarRegistros")
-        frmInsertarRegistros.resize(342, 232)
+#        frmInsertarRegistros.resize(342, 232)
         self.lblBBDD = QtWidgets.QLabel(frmInsertarRegistros)
         self.lblBBDD.setGeometry(QtCore.QRect(20, 30, 141, 16))
         font = QtGui.QFont()
