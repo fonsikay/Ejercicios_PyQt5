@@ -148,7 +148,7 @@ class EliminarUsuario_Aplicacion(QDialog):
                                                        None)
         # Si ha pulsado el botón "Aceptar", se cierra la aplicación y si es "Cancelar", no hace nada.
         if w_boton_pulsado == 'Aceptar':
-            sys.exit()
+            self.hide()
         elif w_boton_pulsado == 'Cancelar':
             pass
 
