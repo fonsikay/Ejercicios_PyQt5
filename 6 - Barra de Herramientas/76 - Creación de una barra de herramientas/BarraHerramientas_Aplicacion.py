@@ -35,24 +35,44 @@ class BarraHerramientas_Aplicacion(QMainWindow):
 
     # Se crea el método que llama a la ventana de inserción de datos de la clase "InsertarRegistrosMySQL_Aplicacion".
     def pro_nuevo_usuario(self):
-        # Se crea un objeto de la ventana secundaria "Nuevo usuario".
-        w_ven_nuevo_usuario = InsertarRegistrosMySQL_Aplicacion(self)
+
+        # Se comprueba con el método "hasattr()", si en nuestra ventana actual "self", el objeto "w_ven_nuevo_usuario"
+        # no existe y eso querrá decir que la nueva ventana no se está mostrando.
+        if not hasattr(self, 'w_ven_nuevo_usuario'):
+            # Se crea un objeto de la ventana secundaria "Nuevo usuario" siendo totalmente necesario que tenga el
+            # "self" delante y que esta variable no se declare en el "__init__".
+            self.w_ven_nuevo_usuario = InsertarRegistrosMySQL_Aplicacion(self)
+
         # Se muestra la ventana de "Nuevo Usuario".
-        w_ven_nuevo_usuario.show()
+        self.w_ven_nuevo_usuario.show()
 
     # Se crea el método que llama a la ventana de busqueda de usuario de la clase "BusquedaUsuario_Aplicacion".
     def pro_buscar_usuario(self):
-        # Se crea un objeto de la ventana secundaria "Buscar usuario".
-        w_ven_buscar_usuario = BusquedaUsuario_Aplicacion(self)
+
+        # Se comprueba con el método "hasattr()", si en nuestra ventana actual "self", el objeto "w_ven_buscar_usuario"
+        # no existe y eso querrá decir que la nueva ventana no se está mostrando.
+        if not hasattr(self, 'w_ven_buscar_usuario'):
+
+            # Se crea un objeto de la ventana secundaria "Buscar usuario" siendo totalmente necesario que tenga el
+            # "self" delante y que esta variable no se declare en el "__init__"
+            self.w_ven_buscar_usuario = BusquedaUsuario_Aplicacion(self)
+
         # Se muestra la ventana de "Buscar Usuario".
-        w_ven_buscar_usuario.show()
+        self.w_ven_buscar_usuario.show()
 
     # Se crea el método que llama a la ventana para el borrado de datos de la clase "EliminarUsuario_Aplicacion".
     def pro_eliminar_usuario(self):
-        # Se crea un objeto de la ventana secundaria "Eliminar usuario".
-        w_ven_eliminar_usuario = EliminarUsuario_Aplicacion(self)
+
+        # Se comprueba con el método "hasattr()", si en nuestra ventana actual "self", el objeto "w_ven_buscar_usuario"
+        # no existe y eso querrá decir que la nueva ventana no se está mostrando.
+        if not hasattr(self, 'w_ven_eliminar_usuario'):
+
+            # Se crea un objeto de la ventana secundaria "Eliminar usuario" siendo totalmente necesario que tenga el
+            # "self" delante y que esta variable no se declare en el "__init__"
+            self.w_ven_eliminar_usuario = EliminarUsuario_Aplicacion(self)
+
         # Se muestra la ventana de "Eliminar Usuario".
-        w_ven_eliminar_usuario.show()
+        self.w_ven_eliminar_usuario.show()
 
     # Se crea un método para mostrar una ventana de mensaje que contiene el botón "Aceptar".
     def pro_mensaje_un_boton(self, w_tipo_ventana, w_mensaje, w_titulo, w_mensaje_secundario):
