@@ -38,7 +38,7 @@ class DatosUbicacion_Aplicacion(QDialog):
         if len(w_ubicacion) > 0:
 
             # Se crea un objeto cliente indicando la clave obtenida de la API de Google Maps.
-            w_cliente_google = Client(key='AIzaSyBa9Jgki2QUMbfxXm5ysnxZiEsnesFS-CM')
+            w_cliente_google = Client(key='...')
             # Se guardan los datos de la localización en un objeto.
             w_datos = w_cliente_google.geocode(w_ubicacion)[0]
 
